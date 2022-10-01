@@ -58,3 +58,10 @@ kubectl apply -f argocd/argo-apps/nginx-bitnami-helm.yaml
 ```bash
 kind delete cluster --name argocd-cluster
 ```
+
+## Extra Resources
+
+ArgoCon22 Workshops:
+
+- [Akuity Best Practices](https://github.com/argocon2022-workshop).
+- [ArgoCD/Rollouts 101/201](https://github.com/argocon22Workshop/ArgoCDRollouts)
