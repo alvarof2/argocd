@@ -42,7 +42,6 @@ Generate password:
 
 Change the value of `configs.secret.argocdServerAdminPassword:` in [argocd/argocd/values.yaml](./argocd/argocd/values.yaml) with this password.
 
-
 ## Deploy ArgoCD Applications
 
 ```bash
