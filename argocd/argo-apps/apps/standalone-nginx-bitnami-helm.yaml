@@ -27,6 +27,8 @@ spec:
       values: |
         ingress:
           enabled: false
+        podLabels:
+          test: test2
         service:
           type: ClusterIP
 

@@ -30,7 +30,7 @@ spec:
         service:
           type: ClusterIP
         podLabels:
-          test: test
+          test: test2
         image:
           registry: docker.io
           repository: bitnami/nginx
