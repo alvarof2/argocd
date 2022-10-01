@@ -6,9 +6,9 @@ Requirements:
 
 - [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 - [Helm](https://helm.sh/)
-- [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) registered as a Github App with its own key installed in the repo (fill out `configs.credentialTemplates.github-app-creds:` in [argocd/argocd/values.yaml](./argocd/argocd/values.yaml)) 
-	- Github Settings ->  Developer settings -> GitHub Apps: Create new App and get private key.
-	- Github Settings ->  Applications: Configure read access to the repo.
+- [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) registered as a Github App with its own key installed in the repo (fill out `configs.credentialTemplates.github-app-creds:` in [argocd/argocd/values.yaml](./argocd/argocd/values.yaml))
+  - Github Settings ->  Developer settings -> GitHub Apps: Create new App and get private key.
+  - Github Settings ->  Applications: Configure read access to the repo.
 
 ## Create Kind cluster
 
@@ -25,6 +25,7 @@ kubectl create ns argocd && helm upgrade --install -n argocd argocd argo/argo-cd
 ```
 
 Access ArgoCD through `localhost:8080` (admin/argocd):
+
 ```bash
 kubectl port-forward -n argocd svc/argocd-server 8080:80
 ```
@@ -32,6 +33,7 @@ kubectl port-forward -n argocd svc/argocd-server 8080:80
 ### Change ArgoCD admin pass
 
 Generate password:
+
 ```bash
  sudo apt-get install apache2-utils
  ARGO_PWD=argocd
@@ -53,6 +55,7 @@ kubectl apply -f argocd/argo-apps/nginx-bitnami-helm.yaml
 ```
 
 ## Delete Kind cluster
+
 ```bash
 kind delete cluster --name argocd-cluster
 ```
