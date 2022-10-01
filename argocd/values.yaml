@@ -3,7 +3,7 @@ configs:
     argocdServerAdminPassword: "$2a$10$NoT/N8AUngbh99Fcdms6OOsrDKz6Us9ey3dIgw0rwdQLfWmJBsFZ6"
   credentialTemplates:
     github-app-creds:
-      url: https://github.com/alvarof2/pocs
+      url: https://github.com/alvarof2/argocd
       githubAppID: "177199"
       githubAppInstallationID: "23783357"
       githubAppPrivateKey: |
