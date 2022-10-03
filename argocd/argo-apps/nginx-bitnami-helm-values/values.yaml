@@ -1,0 +1,7 @@
+nginx:
+  ingress:
+    enabled: false
+  service:
+    type: ClusterIP
+  podLabels:
+    test: test3
