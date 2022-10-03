@@ -18,6 +18,9 @@ spec:
     repoURL: https://github.com/alvarof2/argocd  # Can point to either a Helm chart repo or a git repo.
     targetRevision: main  # For Helm, this refers to the chart version.
     path: argocd/argo-apps/nginx-bitnami-helm-values  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    helm:
+      valueFiles:
+      - values-test.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
