@@ -32,11 +32,11 @@ spec:
         service:
           type: ClusterIP
         podLabels:
-          test: test1
+          test: test2
         image:
           registry: docker.io
           repository: bitnami/nginx
-          tag: 1.23.90-debian-11-r18
+          tag: 1.23.1-debian-11-r18
 
       # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
       # and decide which Helm binary to use automatically. This field can be either 'v2' or 'v3'.
