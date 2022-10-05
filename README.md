@@ -35,7 +35,8 @@ kubectl port-forward -n argocd svc/argocd-server 8080:80
 Generate password:
 
 ```bash
- sudo apt-get install apache2-utils
+ # If Linux:
+ # sudo apt-get install apache2-utils
  ARGO_PWD=argocd
  htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'
 ```
@@ -50,8 +51,28 @@ Change the value of `configs.secret.argocdServerAdminPassword:` in [argocd/argoc
 kubectl apply -f argocd/argo-apps/nginx-vanilla.yaml
 
 # Deploy Bitnami's Nginx Helm chart
-kubectl apply -f argocd/argo-apps/nginx-bitnami-helm.yaml
+kubectl apply -f argocd/argo-apps/standalone-nginx-bitnami-helm.yaml
+
+# Deploy App Of Apps pattern
+kubectl apply -f argocd/argo-apps/app-of-apps.yaml
 ```
+
+### App of Apps
+
+For [bootstraping](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/): manually deploy just one app, all other are deployed automatically through GitOps:
+
+![App Of Apps pattern](./docs/img/app-of-apps-pattern.png)
+
+### Using values.yaml file or tuning a Helm chart
+
+This is still not fully solved, but [it shoul in version 2.6](https://github.com/argoproj/argo-cd/issues/2789#issuecomment-1267242015). The most common WA is to use a "dummy/proxy" chart that does nothing but installing the desired chart as a dependency (example in dir [`argocd/argo-apps/nginx-bitnami-helm-values`](./argocd/argo-apps/nginx-bitnami-helm-values)).
+
+Note:
+
+- The `version:` and `appVersion:` fields of the ["dummy/proxy" chart Chart.yaml](./argocd/argo-apps/nginx-bitnami-helm-values/Chart.yaml) **mean nothing**.
+  - The real chart version is `dependencies[0].version`
+- The `values.yaml` file **must be indented** taking into account the `dependencies[].name`.
+  - For example if `dependencies[0].name: nginx`, the `values.yaml` file starts with `nginx:` as in the [demo](argocd/argo-apps/nginx-bitnami-helm-values/values.yaml).
 
 ## Delete Kind cluster
 
@@ -65,3 +86,12 @@ ArgoCon22 Workshops:
 
 - [Akuity Best Practices](https://github.com/argocon2022-workshop).
 - [ArgoCD/Rollouts 101/201](https://github.com/argocon22Workshop/ArgoCDRollouts)
+
+## Other topics
+
+- [Secrets](https://argo-cd.readthedocs.io/en/stable/operator-manual/secret-management/): just a list of general ways to handle secrets in GitOps.
+- [ArgoCD and OKTA](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/okta/)
+- [ArgoCD RBAC](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/)
+- [ArgoCD HA](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/)
+  - [Using Helm chart](https://github.com/argoproj/argo-helm/issues/172)
+- Many other things: [Operator Manual](https://argo-cd.readthedocs.io/en/stable/operator-manual/)
