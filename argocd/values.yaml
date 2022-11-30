@@ -1,36 +1,20 @@
 configs:
+  cm:
+    users.anonymous.enabled: "true"
+    exec.enabled: true
+  rbac:
+    policy.default: 'role:readonly'
   secret:
     argocdServerAdminPassword: "$2a$10$NoT/N8AUngbh99Fcdms6OOsrDKz6Us9ey3dIgw0rwdQLfWmJBsFZ6"
-  credentialTemplates:
-    github-app-creds:
+  repositories:
+    alvarof2-argocd:
       url: https://github.com/alvarof2/argocd
-      githubAppID: "177199"
-      githubAppInstallationID: "23783357"
-      githubAppPrivateKey: |
-        -----BEGIN RSA PRIVATE KEY-----
-        MIIEpQIBAAKCAQEAqnAnfpIRhV8Aw5SMytAEFcAG5IXrokE2i3FxBs+D35hCTr4n
-        LpE0qXtx0dWPhYw9tHngxhXyXSDkuyGHNl+u0YRskh9H8vpqUTW205rl+LvW0Vcd
-        SnnijtQ85hM2XWoXTLE0zfPtc5DtpWRral7W41VIaPbY8LnkTHzrCDt9hlLN7/NF
-        V6RxW6V1x4ooMEcM3RSMM0RcRSHkXE0I5hqjTcrteuqIaUZA7d77ZNzWseeglGDb
-        vxnmAGGLmnLhTNKY93IaZoFNRPHzkMtneROCn0wlJnUHyDiOO7IJCvn2DmbrHcAq
-        DSJYRamEnsnsE/5Ao9c1WfOsuMT/jj/03RPvhwIDAQABAoIBAHATFfVl6b2Q7jit
-        uzM2PCltP1sQMRVd2pcxPoii9m2Wequ64Jr/guibswmvbBP+VykRJ9w53Eie86mV
-        74qyuostkBM6HJ7LShQixRk6d1Trd+Pqa+loYrFXIMCOC6a7t5yHvlhbuV3QBGVI
-        tlWZDacpklbrU1Zgdp5RWl/sdqtXPu/PMOcaJeHOVgXZs8vg09D1eWIFx1em+be7
-        UxT9waKz2UFje9pgev8dywI4in19Kb0vipi4DG25iMDJThHNPHZqsFcCKofqUeJG
-        gAlA0w9Fp/db81tLha8adKlVUyG1FOnPtQW2QQTmGkerbzLN7mK6hb6MARSP7Ah3
-        YZG0QrECgYEA2s1hNtqjwICoIcCaXE1JGIUk1ab96jqfsEwRewd4jz0j3Rmpoe3H
-        QhdqH6qSRpBnCwZFzOIE1ATaGb2nCaqOYBxVvOaETBX6X+BGpWibgdg0ZrSi34lz
-        eYT01pm5jQv4dSZRYgCVq13eUzH+Ljd1RT6MCcjkDj5I6CkfYqoDeZ8CgYEAx2nj
-        ySykIlWgiOm9z3QR39OmD/oouUHso//a1A2dzbRj0b5H+tQ4KQvhIfFWXL8dNNyZ
-        mdrNpftsIM3nRplm0rmr7W5Lfc/TvWk+apaGmkOm6UZI1F2khBYEBoC1YQ+kP0Mp
-        qpIIpwSDwNCaBAD9hl9dnj62E4McMUrvBzrmkRkCgYEAuHzx2kmyRw90NLlsriUw
-        W+9v5oIemNADc6hAGQdsnQJFahlIUdPm7hBGGBs/qSX67G3GjwGIZqkMqSWjYWAh
-        GmLp3BRWOr1RVmQJzVCNxobhcDQhHPCNoEn+E7CcppQQU98SQdsSV+MXIfkGRDvY
-        sqERfPKZcHUODksWPp/xvCsCgYEAiat8G/4azq1o6Dze0uMiF/GpeuxMwyFVOx+/
-        Npiz8jjwlPQWA4ARyZyu790Kr3stsbn+vS5GvamnS7p7Sc1MJH0UyhVUPuaFGwYW
-        lkWXZdcA25mvXBXOJ3Z/jvG6xuiijx5SHLU3Df9a6nnZapw4a1VZb4+B6lSg2RMP
-        lGFAnrkCgYEAisv5Cqrriil57JM4ukHV+JSOWFLwCsifZTgh0X+CK48/G8WRFbK1
-        3+2pkgOkDBJqHr6JOECfLWNL48N/AnYphWBvWFViuJi93F3YpUGkXkQ3Cy0RC6Wk
-        kGVLu/97wwFuew8SiXxHE1xhx9pvK38WD45ykFsflsuL3Ib7WDvu50M=
-        -----END RSA PRIVATE KEY-----
+  # credentialTemplates:
+  #   github-app-creds:
+  #     url: https://github.com/alvarof2/argocd
+  #     githubAppID: "177199"
+  #     githubAppInstallationID: "23783357"
+  #     githubAppPrivateKey: |
+  #       -----BEGIN RSA PRIVATE KEY-----
+  #       .....
+  #       -----END RSA PRIVATE KEY-----

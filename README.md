@@ -21,7 +21,7 @@ kind create cluster --config=./kind/cluster.yaml
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm && helm repo update
 
-kubectl create ns argocd && helm upgrade --install -n argocd argocd argo/argo-cd --version 5.5.7 --values argocd/values.yaml 
+kubectl create ns argocd && helm upgrade --install -n argocd argocd argo/argo-cd --version 5.14.3 --values argocd/values.yaml 
 ```
 
 Access ArgoCD through `localhost:8080` (admin/argocd):
