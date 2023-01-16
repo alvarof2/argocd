@@ -74,6 +74,14 @@ Note:
 - The `values.yaml` file **must be indented** taking into account the `dependencies[].name`.
   - For example if `dependencies[0].name: nginx`, the `values.yaml` file starts with `nginx:` as in the [demo](argocd/argo-apps/nginx-bitnami-helm-values/values.yaml).
 
+## ArgoCD Image Updater
+
+Install `argocd-image-updater`:
+
+```bash
+kubectl apply -f argocd/image-updater/argocd-image-updater.yaml
+```
+
 ## Delete Kind cluster
 
 ```bash
