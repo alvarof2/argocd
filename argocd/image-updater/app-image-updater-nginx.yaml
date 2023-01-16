@@ -34,6 +34,8 @@ spec:
           enabled: false
         service:
           type: ClusterIP
+        image:
+          tag: latest
 
       # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
       # and decide which Helm binary to use automatically. This field can be either 'v2' or 'v3'.
