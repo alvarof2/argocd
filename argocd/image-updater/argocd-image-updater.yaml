@@ -27,10 +27,9 @@ spec:
       # Helm values files for overriding values in the helm chart
       # The path is relative to the spec.source.path directory defined above
       values: |
-        ingress:
-          enabled: false
-        service:
-          type: ClusterIP
+        image:
+          # -- Overrides the image tag whose default is the chart appVersion
+          tag: "latest"
 
       # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
       # and decide which Helm binary to use automatically. This field can be either 'v2' or 'v3'.
