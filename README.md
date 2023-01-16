@@ -82,6 +82,20 @@ Install `argocd-image-updater`:
 kubectl apply -f argocd/image-updater/argocd-image-updater.yaml
 ```
 
+Deploy example apps:
+
+```bash
+# Declarative app
+kubectl apply -f argocd/image-updater/test-image-updater-nginx.yaml
+```
+
+```bash
+# App-of-apps deployment
+kubectl apply -f argocd/image-updater/app-of-apps.yaml
+```
+
+The examples use `alvarof2/nginx:latest` image that is built and pushed from `argocd/image-updater/nginx-docker` [folder](./argocd/image-updater/nginx-docker/).
+
 ## Delete Kind cluster
 
 ```bash
