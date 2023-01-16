@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: test-image-updater-nginx
   annotations:
-    argocd-image-updater.argoproj.io/image-list: myimage=nginx:latest
+    argocd-image-updater.argoproj.io/image-list: myimage=docker.io/bitnami/nginx:latest
     argocd-image-updater.argoproj.io/myimage.update-strategy: digest
   labels:
     type: standalone
@@ -18,9 +18,26 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/alvarof2/argocd  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: main  # For Helm, this refers to the chart version.
-    path: argocd/image-updater/test-nginx  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    repoURL: https://charts.bitnami.com/bitnami  # Can point to either a Helm chart repo or a git repo.
+    targetRevision: "13.2.21"  # For Helm, this refers to the chart version.
+
+    # helm specific config
+    chart: nginx  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+    helm:
+      # Release name override (defaults to application name)
+      releaseName: nginx-bitnami-helm
+
+      # Helm values files for overriding values in the helm chart
+      # The path is relative to the spec.source.path directory defined above
+      values: |
+        ingress:
+          enabled: false
+        service:
+          type: ClusterIP
+
+      # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
+      # and decide which Helm binary to use automatically. This field can be either 'v2' or 'v3'.
+      version: v3
 
   # Destination cluster and namespace to deploy the application
   destination:
