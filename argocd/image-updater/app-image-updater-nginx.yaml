@@ -5,6 +5,8 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: myimage=docker.io/alvarof2/nginx:latest
     argocd-image-updater.argoproj.io/myimage.update-strategy: digest
+    argocd-image-updater.argoproj.io/myimage.helm.image-name: image.repository
+    argocd-image-updater.argoproj.io/myimage.helm.image-tag: image.tag
   labels:
     type: standalone
   # You'll usually want to add your resources to the argocd namespace.
