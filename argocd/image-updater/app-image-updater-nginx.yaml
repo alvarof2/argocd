@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: test-image-updater-nginx
   annotations:
-    argocd-image-updater.argoproj.io/image-list: myimage=docker.io/bitnami/nginx:latest
+    argocd-image-updater.argoproj.io/image-list: myimage=docker.io/alvarof2/nginx:latest
     argocd-image-updater.argoproj.io/myimage.update-strategy: digest
   labels:
     type: standalone
@@ -34,7 +34,10 @@ spec:
           enabled: false
         service:
           type: ClusterIP
+        containerPorts:
+          http: 80
         image:
+          repository: alvarof2/nginx
           tag: latest
 
       # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
