@@ -4,6 +4,7 @@ metadata:
   name: app-image-updater-nginx-helm-values
   annotations:
     argocd-image-updater.argoproj.io/image-list: myimage=docker.io/alvarof2/nginx:latest
+    argocd-image-updater.argoproj.io/myimage.helm.image-tag: nginx.image.tag
     argocd-image-updater.argoproj.io/myimage.platforms: linux/arm64,linux/amd64
     argocd-image-updater.argoproj.io/myimage.update-strategy: digest
   labels:
