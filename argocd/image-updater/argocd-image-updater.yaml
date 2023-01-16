@@ -27,6 +27,8 @@ spec:
       # Helm values files for overriding values in the helm chart
       # The path is relative to the spec.source.path directory defined above
       values: |
+        config:
+          logLevel: "debug"
         image:
           # -- Overrides the image tag whose default is the chart appVersion
           tag: "latest"
