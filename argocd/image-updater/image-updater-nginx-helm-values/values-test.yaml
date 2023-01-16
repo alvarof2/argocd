@@ -1,0 +1,10 @@
+nginx:
+  ingress:
+    enabled: false
+  service:
+    type: ClusterIP
+  containerPorts:
+    http: 80
+  image:
+    repository: alvarof2/nginx
+    tag: latest
