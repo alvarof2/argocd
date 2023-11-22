@@ -7,7 +7,8 @@
   ],
   "argocd": {
     "enabled": true,
-    "fileMatch": ["argocd/.+/apps/.+\\.yaml$"]
+    "fileMatch": ["argocd/.+/apps/.+\\.yaml$"],
+    "rangeStrategy": "bump"
   },
   "helmv3": {
     "enabled": false
