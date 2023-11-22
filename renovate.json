@@ -8,5 +8,8 @@
   "argocd": {
     "enabled": true,
     "fileMatch": ["argocd/.+/apps/.+\\.yaml$"]
+  },
+  "helm": {
+    "enabled": false
   }
 }
