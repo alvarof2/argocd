@@ -22,5 +22,5 @@ appVersion: 0.0.1
 
 dependencies:
 - name: nginx
-  version: 13.2.21
+  version: 13.2.34
   repository: https://charts.bitnami.com/bitnami
