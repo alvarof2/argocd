@@ -20,7 +20,7 @@ spec:
   # Source of the application manifests
   source:
     repoURL: https://charts.bitnami.com/bitnami  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: "13.2.21"  # For Helm, this refers to the chart version.
+    targetRevision: "17.3.2"  # For Helm, this refers to the chart version.
 
     # helm specific config
     chart: nginx  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
