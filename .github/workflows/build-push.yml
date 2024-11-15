@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+        uses: actions/checkout@cbb722410c2e876e24abbe8de2cc27693e501dcb
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
